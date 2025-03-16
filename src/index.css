@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 2px;
+}
+
+
+body {
+  font-family: "Big Shoulders Stencil", cursive;
+}
