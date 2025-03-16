@@ -13,7 +13,7 @@ A web app that lets users experience the thrill of crypto trading without the fi
 - **User Customization** – Profile updates, dark mode, and notification settings.
 
 ## Tech Stack
-- **Frontend:** Vite + React, Tailwind CSS, Framer Motion
+- **Frontend:** Vite + React, Tailwind CSS, GSAP
 - **Backend:** Node.js + Express
 - **Database:** MongoDB
 - **API Integration:** CoinGecko (for market data)
