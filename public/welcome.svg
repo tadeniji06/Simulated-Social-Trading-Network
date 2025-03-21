@@ -1,0 +1,38 @@
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background elements -->
+  <rect x="50" y="50" width="400" height="200" rx="20" fill="#1E1E1E" />
+  <rect x="70" y="80" width="360" height="140" rx="10" fill="#2D2D2D" />
+  
+  <!-- Chart lines -->
+  <path d="M100 180 L150 140 L200 160 L250 120 L300 90 L350 130 L400 110" stroke="#0A84FF" stroke-width="3" fill="none" />
+  <path d="M100 200 L150 190 L200 210 L250 180 L300 200 L350 170 L400 190" stroke="#9D4EDD" stroke-width="3" fill="none" />
+  
+  <!-- Bitcoin icon -->
+  <circle cx="430" cy="70" r="25" fill="#F7931A" />
+  <path d="M430 55 L430 85 M420 60 L440 60 M420 80 L440 80 M440 65 L440 75" stroke="white" stroke-width="3" />
+  
+  <!-- Ethereum icon -->
+  <circle cx="70" cy="230" r="25" fill="#627EEA" />
+  <path d="M70 215 L70 245 M60 230 L80 230" stroke="white" stroke-width="3" />
+  
+  <!-- Dollar signs -->
+  <text x="120" y="120" font-family="Arial" font-size="24" fill="#00C853">$</text>
+  <text x="280" y="150" font-family="Arial" font-size="24" fill="#00C853">$</text>
+  <text x="380" y="80" font-family="Arial" font-size="24" fill="#00C853">$</text>
+  
+  <!-- Candlesticks -->
+  <rect x="120" y="200" width="10" height="30" fill="#FF3B30" />
+  <rect x="125" y="190" width="1" height="50" fill="#FF3B30" />
+  
+  <rect x="180" y="170" width="10" height="20" fill="#00C853" />
+  <rect x="185" y="160" width="1" height="40" fill="#00C853" />
+  
+  <rect x="240" y="190" width="10" height="25" fill="#FF3B30" />
+  <rect x="245" y="180" width="1" height="45" fill="#FF3B30" />
+  
+  <rect x="300" y="160" width="10" height="30" fill="#00C853" />
+  <rect x="305" y="150" width="1" height="50" fill="#00C853" />
+  
+  <rect x="360" y="200" width="10" height="15" fill="#FF3B30" />
+  <rect x="365" y="190" width="1" height="35" fill="#FF3B30" />
+</svg>

@@ -1,14 +1,83 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
-  padding: 2px;
+:root {
+  --color-primary: #0a84ff;
+  --color-accent: #9d4edd;
+  --color-success: #00c853;
+  --color-danger: #ff3b30;
+  --color-warning: #ffcc00;
+  --color-background: #121212;
+  --color-surface: #1e1e1e;
+  --color-text: #f5f5f5;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  font-family: "Big Shoulders Stencil", cursive;
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Custom component classes */
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-primary text-white font-semibold py-2 px-4 rounded-lg shadow-button transition-all duration-200 hover:opacity-90 hover:shadow-lg;
+  }
+
+  .btn-success {
+    @apply bg-gradient-success text-white font-semibold py-2 px-4 rounded-lg shadow-success transition-all duration-200 hover:opacity-90 hover:shadow-lg;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-danger text-white font-semibold py-2 px-4 rounded-lg shadow-danger transition-all duration-200 hover:opacity-90 hover:shadow-lg;
+  }
+
+  .card {
+    @apply bg-bg-card rounded-xl shadow-card border border-border-dark p-4;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-card rounded-xl shadow-card border border-border-dark p-4;
+  }
+
+  .input {
+    @apply bg-bg-elevated border border-border-light rounded-lg px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .badge-profit {
+    @apply bg-success/20 text-success px-2 py-1 rounded-md text-xs font-semibold;
+  }
+
+  .badge-loss {
+    @apply bg-danger/20 text-danger px-2 py-1 rounded-md text-xs font-semibold;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
 }
