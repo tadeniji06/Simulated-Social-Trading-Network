@@ -12,13 +12,19 @@ import Dashboard from "../screens/Dashboard";
 import Login from "../screens/Auth/Login";
 import Register from "../screens/Auth/Register";
 import Onboarding from "../screens/Onboarding";
-
 import NotFound from "../screens/NotFound";
 import GoogleAuthCallback from "../components/Auth/GoogleAuthCallback";
+import Trade from "../components/Dashboard/Trade";
+import Portfolio from "../screens/PortFolio";
+import Leaderboard from "../screens/Leaderboard";
+import Profile from "../screens/Profile";
+import Social from "../screens/Social";
+import UserProfile from "../screens/UserProfile";
+import Settings from "../components/settings/Settings";
 
 // Define the routes configuration
 const AppRoutes = () => {
-  // Protected Route wrapper component - MOVED INSIDE AppRoutes
+  // Protected Route wrapper component
   const ProtectedRoute = ({ children }) => {
     const { isAuthenticated, loading, user } = UseAuth();
 
@@ -73,8 +79,12 @@ const AppRoutes = () => {
     return children;
   };
 
-  // Public Route wrapper component - MOVED INSIDE AppRoutes
-  const PublicRoute = ({ children, redirectAuthenticated = true, redirectPath = '/dashboard' }) => {
+  // Public Route wrapper component
+  const PublicRoute = ({
+    children,
+    redirectAuthenticated = true,
+    redirectPath = "/dashboard",
+  }) => {
     const { isAuthenticated, loading, user } = UseAuth();
 
     // Show loading state while authentication is being checked
@@ -104,35 +114,7 @@ const AppRoutes = () => {
   };
 
   const router = createBrowserRouter([
-    {
-      element: <Layout />,
-      children: [
-        {
-          path: "/",
-          element: (
-            <PublicRoute>
-              <Register />
-            </PublicRoute>
-          ),
-        },
-        {
-          path: "/dashboard",
-          element: (
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "/onboarding",
-          element: (
-            <OnboardingRoute>
-              <Onboarding />
-            </OnboardingRoute>
-          ),
-        },
-      ],
-    },
+    // Public routes outside the main layout
     {
       path: "/login",
       element: (
@@ -149,14 +131,90 @@ const AppRoutes = () => {
         </PublicRoute>
       ),
     },
-
     {
       path: "/auth/callback",
       element: <GoogleAuthCallback />,
     },
+
+    // Main layout with nested routes
     {
-      path: "*",
-      element: <NotFound />,
+      element: <Layout />,
+      children: [
+        // Root path
+        {
+          path: "/",
+          element: (
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          ),
+        },
+
+        // Onboarding
+        {
+          path: "/onboarding",
+          element: (
+            <OnboardingRoute>
+              <Onboarding />
+            </OnboardingRoute>
+          ),
+        },
+
+        // Dashboard and its nested routes
+        {
+          path: "/dashboard",
+          element: (
+            <ProtectedRoute>
+              <Outlet /> {/* This allows nested routes to render */}
+            </ProtectedRoute>
+          ),
+          children: [
+            // Dashboard index route
+            {
+              index: true,
+              element: <Dashboard />,
+            },
+            // Trade route
+            {
+              path: "trade",
+              element: <Trade />,
+            },
+            // Portfolio route
+            {
+              path: "portfolio",
+              element: <Portfolio />,
+            },
+            // Leaderboard route
+            {
+              path: "leaderboard",
+              element: <Leaderboard />,
+            },
+            {
+              path: "user/:userId",
+              element: <UserProfile />,
+            },
+            // Profile settings route
+            {
+              path: "profile",
+              element: <Profile />,
+            },
+            {
+              path: "social",
+              element: <Social />,
+            },
+          ],
+        },
+
+        // Catch-all route for 404
+        {
+          path: "*",
+          element: <NotFound />,
+        },
+        {
+          path: "/settings",
+          element: <Settings />,
+        }
+      ],
     },
   ]);
 

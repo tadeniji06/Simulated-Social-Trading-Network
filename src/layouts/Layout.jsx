@@ -16,8 +16,8 @@ const Layout = () => {
 
   return (
     <div>
-      {isAuthenticated && <RightBar />}
       {isAuthenticated && <Header />}
+      {isAuthenticated && <RightBar />}
       <Outlet />
       <Footer />
       <Toaster position='top-left' />
